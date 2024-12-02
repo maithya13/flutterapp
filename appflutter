@@ -1,0 +1,76 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Flutter Welcome App'),
+        backgroundColor: Colors.blueAccent,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Welcome Message
+            Text(
+              'Welcome to Flutter!',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20), // Space between text and button
+
+            // Image from the internet
+            Image.network(
+              'https://flutter.dev/assets/homepage/carousel/slide_1-layer_1-1e85c32f9b9d210b9fbd5d3c51e59e7a7a6ff7bce883b0e15f67b55f986dfb76.png',
+              width: 200,
+              height: 200,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(height: 20), // Space between image and button
+
+            // Interactive Button
+            ElevatedButton(
+              onPressed: () {
+                print('Button was clicked!');
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blueAccent, // Button color
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Text(
+                'Click Me!',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
